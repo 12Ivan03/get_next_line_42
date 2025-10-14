@@ -6,7 +6,7 @@
 /*   By: ipavlov <ipavlov@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:43:47 by ipavlov           #+#    #+#             */
-/*   Updated: 2024/11/05 14:21:05 by ipavlov          ###   ########.fr       */
+/*   Updated: 2025/10/14 14:49:22 by ipavlov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_free(char **ptr)
 	}
 }
 
-int	ft_strlen(const char *s)
+int	gnl_ft_strlen(const char *s)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
-void	*ft_calloc(int nmemb, int size)
+void	*gnl_ft_calloc(int nmemb, int size)
 {
 	int				total;
 	int				i;
@@ -59,14 +59,14 @@ void	*ft_calloc(int nmemb, int size)
 	return (ptr);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*gnl_ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str_cat;
 	int		size_all;
 	int		i;
 	int		j;
 
-	size_all = ft_strlen(s1) + ft_strlen(s2);
+	size_all = gnl_ft_strlen(s1) + gnl_ft_strlen(s2);
 	str_cat = (char *)malloc((size_all + 1) * sizeof(char));
 	if (str_cat == NULL)
 		return (NULL);

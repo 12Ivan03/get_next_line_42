@@ -6,7 +6,7 @@
 /*   By: ipavlov <ipavlov@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:43:45 by ipavlov           #+#    #+#             */
-/*   Updated: 2024/11/22 10:56:29 by ipavlov          ###   ########.fr       */
+/*   Updated: 2025/10/14 14:49:48 by ipavlov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_store_place_helper(char **store_place)
 {
 	if (*store_place == NULL)
 	{
-		*store_place = ft_calloc(1, 1);
+		*store_place = gnl_ft_calloc(1, 1);
 		if (*store_place == NULL)
 			return (1);
 		return (0);
@@ -33,7 +33,7 @@ char	*ft_store_place(int fd, char *store_place)
 
 	if (ft_store_place_helper(&store_place))
 		return (NULL);
-	store_holder = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
+	store_holder = gnl_ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	if (store_holder == NULL)
 		return (ft_free(&store_place), NULL);
 	read_bytes = 1;
@@ -43,7 +43,7 @@ char	*ft_store_place(int fd, char *store_place)
 		if (read_bytes == -1)
 			return (ft_free(&store_holder), ft_free(&store_place), NULL);
 		store_holder[read_bytes] = 0;
-		temp = ft_strjoin(store_place, store_holder);
+		temp = gnl_ft_strjoin(store_place, store_holder);
 		if (temp == NULL)
 			return (ft_free(&store_holder), ft_free(&store_place), NULL);
 		ft_free(&store_place);
@@ -64,9 +64,9 @@ char	*ft_line_to_print(char *store_place)
 	while (store_place[i] != '\0' && store_place[i] != '\n')
 		i++;
 	if (store_place[i] == '\n')
-		line = ft_calloc(i + 2, sizeof(char));
+		line = gnl_ft_calloc(i + 2, sizeof(char));
 	else
-		line = ft_calloc(i + 1, sizeof(char));
+		line = gnl_ft_calloc(i + 1, sizeof(char));
 	if (line == NULL)
 		return (NULL);
 	i = 0;
@@ -91,7 +91,7 @@ char	*ft_update_store_place(char *store_place)
 		i++;
 	if (!store_place[i])
 		return (ft_free(&store_place), store_place = NULL, NULL);
-	update_store = ft_calloc((ft_strlen(store_place) - i + 1), sizeof(char));
+	update_store = gnl_ft_calloc((gnl_ft_strlen(store_place) - i + 1), sizeof(char));
 	if (update_store == NULL)
 		return (ft_free(&store_place), NULL);
 	j = 0;

@@ -6,7 +6,7 @@
 /*   By: ipavlov <ipavlov@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:43:40 by ipavlov           #+#    #+#             */
-/*   Updated: 2024/11/09 11:48:32 by ipavlov          ###   ########.fr       */
+/*   Updated: 2025/10/14 14:49:59 by ipavlov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@
 char	*get_next_line(int fd);
 char	*ft_store_place(int fd, char *store_place);
 
-int		ft_strlen(const char *s);
-void	*ft_calloc(int nmemb, int size);
-char	*ft_strjoin(char const *s1, char const *s2);
+int		gnl_ft_strlen(const char *s);
+void	*gnl_ft_calloc(int nmemb, int size);
+char	*gnl_ft_strjoin(char const *s1, char const *s2);
 int		ft_strchr_t_f(const char *s, int c);
 void	ft_free(char **ptr);
 
