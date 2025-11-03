@@ -80,3 +80,25 @@ int main(void)
     return 0;
 }
 ```
+
+## minimal Makefile (put in project root as Makefile)
+``` Makefile
+CC = gcc
+CFLAGS = -D BUFFER_SIZE=32 -Wall -Wextra -Werror
+SRCS = get_next_line.c get_next_line_utils.c main.c
+OBJS = $(SRCS:.c=.o)
+TARGET = gnl_example
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+    $(CC) $(CFLAGS) -o $@ $(OBJS)
+
+clean:
+    rm -f $(OBJS)
+
+fclean: clean
+    rm -f $(TARGET)
+
+re: fclean all
+```
